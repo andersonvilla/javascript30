@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TUSA TRANSLATOR</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">pero</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hice</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">toro</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">ese</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">llanto</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">por</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">nara<span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">brrrr</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">ahora</span>
+    </div>
+    <div data-key="90" class="key">
+      <kbd>Z</kbd>
+      <span class="sound">soy</span>
+    </div>
+    <div data-key="88" class="key">
+      <kbd>X</kbd>
+      <span class="sound">una</span>
+    </div>
+    <div data-key="67" class="key">
+      <kbd>C</kbd>
+      <span class="sound">chica</span>
+    </div>
+    <div data-key="86" class="key">
+      <kbd>V</kbd>
+      <span class="sound">mala</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/Pero.mp3"></audio>
+  <audio data-key="83" src="sounds/Hice.mp3"></audio>
+  <audio data-key="68" src="sounds/Todo.mp3"></audio>
+  <audio data-key="70" src="sounds/Ese.mp3"></audio>
+  <audio data-key="71" src="sounds/Llanto.mp3"></audio>
+  <audio data-key="72" src="sounds/Por.mp3"></audio>
+  <audio data-key="74" src="sounds/Nada.mp3"></audio>
+  <audio data-key="75" src="sounds/Rar.wav"></audio>
+  <audio data-key="76" src="sounds/Ahora.mp3"></audio>
+  <audio data-key="90" src="sounds/Soy.mp3"></audio>
+  <audio data-key="88" src="sounds/Una.mp3"></audio>
+  <audio data-key="67" src="sounds/Chica.mp3"></audio>
+  <audio data-key="86" src="sounds/Mala.mp3"></audio>
+  <!-- <audio src="sounds/back.wav" autoplay="autoplay"  controls="controls" loop="loop"></audio> -->
+  <audio class="sound" loop="loop" controls="controls" src="sounds/back.wav"></audio>
+<script>
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+
+
+</body>
+</html>
