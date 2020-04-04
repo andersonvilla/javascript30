@@ -32,14 +32,14 @@ function handleUpdate() {
 
 
 //<![CDATA[
-    $('#girar').on("click", function(e) {
+   /*  $('#girar').on("click", function(e) {
         e.preventDefault();
         $('#girar').addClass('giro');
        
         var t1 = setTimeout(function() {
         $('#girar').removeClass('giro');
         }, 1000);
-      });
+      }); */
         //]]>
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
