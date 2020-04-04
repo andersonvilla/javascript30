@@ -1,7 +1,7 @@
 var imagenes=Array("0.jpg","1.jpeg","2.jpg");
 var imagenVisible=0;
 const inputs = document.querySelectorAll('.controls input');
-function change(img)
+function changeImg(img)
 	{
 		imagenVisible++;
 		if(imagenVisible>=imagenes.length)
@@ -30,10 +30,6 @@ function handleUpdate() {
   document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
 }
 
-function rotateImage() {
-    var img = document.getElementById('myimage');
-    img.style.transform = 'rotate(180deg)';
-}
 
 //<![CDATA[
     $('#girar').on("click", function(e) {
