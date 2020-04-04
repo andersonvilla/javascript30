@@ -21,7 +21,6 @@ function change(img)
 			imgTmp.src=imagenes[imagenVisible+1];
 		}
 	}
- 
 	window.onload=function() {
 		nextImage();
 	}
